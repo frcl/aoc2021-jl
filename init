@@ -1,0 +1,28 @@
+#!/bin/bash
+
+add_module () {
+
+    cat > src/day${1}.jl <<EOF
+function day${1}_part1(input::Vector{String})
+    print("Hello World!")
+end
+EOF
+    sed -i 's/\(# to be continued\)/include(\"day'${1}'.jl\")\n\1/' src/aoc2021.jl
+
+    cat > test/test_day${1}.jl <<EOF
+@testset "Day ${1}" begin
+    @testset "Part 1" begin
+        @test 1 == 1
+    end
+
+    @testset "Part 2" begin
+    end
+end
+EOF
+    echo "include(\"test_day${1}.jl\")" >> test/runtests.jl
+}
+
+
+day=$(date +%d)
+
+[[ -e src/day${day}.jl ]] || add_module ${day}

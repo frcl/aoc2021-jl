@@ -1,0 +1,6 @@
+#!/bin/bash
+
+day=${1:-$(date +%d)}
+part=${2:-1}
+
+nog --year 2021 --day $day | julia --project=. -e "using aoc2021; run_from_stdin($day, $part)"
