@@ -3,7 +3,7 @@
 add_module () {
 
     cat > src/day${1}.jl <<EOF
-function day${1}_part1(input::Vector{String})
+function day${1}_part1(input::Vector{<:AbstractString})
     print("Hello World!")
 end
 EOF
