@@ -5,10 +5,11 @@ include("day01.jl")
 
 function run_from_stdin(day::Int, part::Int)
     if day > 9
-        getfield(aoc2021, Symbol("day$(day)_part$(part)"))(readlines())
+        func_string = "day$(day)_part$(part)"
     else
-        getfield(aoc2021, Symbol("day0$(day)_part$(part)"))(readlines())
+        func_string = "day0$(day)_part$(part)"
     end
+    println(getfield(aoc2021, Symbol(func_string))(readlines()))
 end
 
 export run_from_stdin
