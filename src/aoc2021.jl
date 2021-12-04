@@ -3,6 +3,7 @@ module aoc2021
 include("day01.jl")
 include("day02.jl")
 include("day03.jl")
+include("day04.jl")
 # to be continued
 
 function run_from_stdin(day::Int, part::Int)
