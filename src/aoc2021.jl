@@ -6,6 +6,7 @@ include("day03.jl")
 include("day04.jl")
 include("day05.jl")
 include("day06.jl")
+include("day07.jl")
 # to be continued
 
 function run_from_stdin(day::Int, part::Int)
