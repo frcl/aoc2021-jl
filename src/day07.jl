@@ -1,10 +1,12 @@
-function day07_part1(input::Vector{<:AbstractString})
+module day07
+
+function part1(input::Vector{<:AbstractString})
     positions = parse_input_d7(input)
     return absolute_error(median(positions), positions)
 end
 
 
-function day07_part2(input::Vector{<:AbstractString})
+function part2(input::Vector{<:AbstractString})
     positions = parse_input_d7(input)
     m = mean(positions)
     opt_pos = Int32(round(m +
@@ -42,3 +44,5 @@ end
 function metric(n)
     sum(1:n)
 end
+
+end # module

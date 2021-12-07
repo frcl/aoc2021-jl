@@ -22,10 +22,10 @@ day04_testcase = split("""7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,1
 
 @testset "Day 04" begin
     @testset "Part 1" begin
-        @test aoc2021.day04_part1(day04_testcase) == 4512
+        @test aoc2021.day04.part1(day04_testcase) == 4512
     end
 
     @testset "Part 2" begin
-        @test aoc2021.day04_part2(day04_testcase) == 1924
+        @test aoc2021.day04.part2(day04_testcase) == 1924
     end
 end

@@ -1,4 +1,6 @@
-function day02_part1(input::Vector{<:AbstractString})
+module day02
+
+function part1(input::Vector{<:AbstractString})
     steps = parse_input_d2(input)
     xpos = sum_over(steps, "forward")
     depth = sum_over(steps, "down") - sum_over(steps, "up")
@@ -6,7 +8,7 @@ function day02_part1(input::Vector{<:AbstractString})
 end
 
 
-function day02_part2(input::Vector{<:AbstractString})
+function part2(input::Vector{<:AbstractString})
     steps = parse_input_d2(input)
 
     aim = 0
@@ -37,3 +39,5 @@ end
 function sum_over(steps, direction)
     return sum([s[2] for s = steps if s[1] == direction])
 end
+
+end # module

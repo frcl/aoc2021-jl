@@ -1,9 +1,11 @@
-function day05_part1(input::Vector{<:AbstractString})
+module day05
+
+function part1(input::Vector{<:AbstractString})
     find_doubles([(p1, p2) for (p1, p2) = parse_input_d5(input) if p1[1] == p2[1] || p1[2] == p2[2]])
 end
 
 
-function day05_part2(input::Vector{<:AbstractString})
+function part2(input::Vector{<:AbstractString})
     find_doubles(parse_input_d5(input))
 end
 
@@ -37,3 +39,5 @@ function parse_input_d5(input::Vector{<:AbstractString})
     p = x -> parse(Int32, x) + 1 # add one because input is zero indexed
     return [((p(g[1]), p(g[2])), (p(g[3]), p(g[4]))) for g = matches]
 end
+
+end # module

@@ -1,9 +1,11 @@
-function day06_part1(input::Vector{<:AbstractString})
+module day06
+
+function part1(input::Vector{<:AbstractString})
     run(input, 80)
 end
 
 
-function day06_part2(input::Vector{<:AbstractString})
+function part2(input::Vector{<:AbstractString})
     run(input, 256)
 end
 
@@ -29,3 +31,5 @@ function parse_input_d6(input::Vector{<:AbstractString})
     ages = [parse(Int64, s) for s = split(input[1], ',')]
     return [count(==(n), ages) for n = 0:8]
 end
+
+end # module

@@ -3,19 +3,38 @@
 add_module () {
 
     cat > src/day${1}.jl <<EOF
-function day${1}_part1(input::Vector{<:AbstractString})
-    print("Hello World!")
+module day${1}
+
+function part1(input::Vector{<:AbstractString})
+    foo = parse_input_d${1}(input)
 end
+
+
+function part2(input::Vector{<:AbstractString})
+    foo = parse_input_d${1}(input)
+end
+
+
+function parse_input_d${1}(input::Vector{<:AbstractString})
+    # do something
+    input
+end
+
+end # module
 EOF
     sed -i 's/\(# to be continued\)/include(\"day'${1}'.jl\")\n\1/' src/aoc2021.jl
 
     cat > test/test_day${1}.jl <<EOF
+day${1}_testcase = split("")
+
+
 @testset "Day ${1}" begin
     @testset "Part 1" begin
-        @test 1 == 1
+        # @test aoc2021.day${1}.part1(day${1}_testcase) == "to be replaced"
     end
 
     @testset "Part 2" begin
+        # @test aoc2021.day${1}.part2(day${1}_testcase) == "to be replaced"
     end
 end
 EOF

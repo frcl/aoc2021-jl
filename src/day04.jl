@@ -1,4 +1,6 @@
-function day04_part1(input::Vector{<:AbstractString})
+module day04
+
+function part1(input::Vector{<:AbstractString})
     numbers, boards, marks, won = prepare_d4(input)
     last_win_score = nothing
     mark(boards, marks, numbers[1:4])
@@ -12,7 +14,7 @@ function day04_part1(input::Vector{<:AbstractString})
 end
 
 
-function day04_part2(input::Vector{<:AbstractString})
+function part2(input::Vector{<:AbstractString})
     numbers, boards, marks, won = prepare_d4(input)
     last_win_score = nothing
     mark(boards, marks, numbers[1:4])
@@ -74,3 +76,5 @@ end
 function score(board, mark, number)
     return sum(board[.~mark])*number
 end
+
+end # module

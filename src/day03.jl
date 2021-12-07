@@ -1,4 +1,6 @@
-function day03_part1(input::Vector{<:AbstractString})
+module day03
+
+function part1(input::Vector{<:AbstractString})
     counts = sum(parse_input_d3(input))
     gamma_digits = [c > length(input)/2 ? 1 : 0 for c = counts]
     epsilon_digits = [d == 0 ? 1 : 0 for d = gamma_digits]
@@ -8,7 +10,7 @@ function day03_part1(input::Vector{<:AbstractString})
 end
 
 
-function day03_part2(input::Vector{<:AbstractString})
+function part2(input::Vector{<:AbstractString})
     digits = parse_input_d3(input)
     oxygen = from_binary(find_number(digits, 1))
     co2 = from_binary(find_number(digits, 0))
@@ -47,3 +49,5 @@ end
 function parse_input_d3(input::Vector{<:AbstractString})
     return [[parse(Int32, d) for d = split(n, "")] for n = input]
 end
+
+end # module
