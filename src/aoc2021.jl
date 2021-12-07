@@ -9,13 +9,13 @@ include("day06.jl")
 include("day07.jl")
 # to be continued
 
+function get_func(day::Int, part::Int)
+    mod = getfield(aoc2021, Symbol(day > 9 ? "day$(day)" : "day0$(day)"))
+    return getfield(mod, Symbol("part$(part)"))
+end
+
 function run_from_stdin(day::Int, part::Int)
-    if day > 9
-        func_string = "day$(day)_part$(part)"
-    else
-        func_string = "day0$(day)_part$(part)"
-    end
-    println(getfield(aoc2021, Symbol(func_string))(readlines()))
+    println(get_func(day, part)(readlines()))
 end
 
 export run_from_stdin
