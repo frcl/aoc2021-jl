@@ -1,5 +1,7 @@
 # Advent of Code 2021 Solutions
 
+![Test badge](https://github.com/frcl/aoc2021-jl/actions/workflows/run_tests.yml/badge.svg)
+
 My solutions for Advent of Code 2021.
 Running requires recent julia installation (I'm using 1.6).
 Run tests with
