@@ -13,6 +13,7 @@ include("day10.jl")
 include("day11.jl")
 include("day12.jl")
 include("day13.jl")
+include("day14.jl")
 # to be continued
 
 function get_func(day::Int, part::Int)
