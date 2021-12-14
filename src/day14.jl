@@ -13,7 +13,7 @@ end
 function run(input, iterations)
     template, rules = parse_input_d14(input)
 
-    pair_freqs = Dict((k, Int64(0)) for (k, _) in rules)
+    pair_freqs = Dict(k => 0 for k in keys(rules))
     for i in 1:length(template)-1
         pair_freqs[template[i:i+1]] += 1
     end
@@ -22,20 +22,19 @@ function run(input, iterations)
         pair_freqs = apply_rules(pair_freqs, rules)
     end
 
-    elements = unique(c[1] for (_, c) in rules)
-    double_freqs = [Int64(sum(v*count(==(c), k) for (k, v) in pair_freqs))
-                    for c in elements]
+    elements = unique(c[1] for c in values(rules))
+    double_freqs = [sum(v*count(==(c), k) for (k, v) in pair_freqs) for c in elements]
     double_freqs[findfirst(==(template[1]), elements)] += 1
     double_freqs[findfirst(==(template[end]), elements)] += 1
-    return Int64((maximum(double_freqs) - minimum(double_freqs))/2)
+    return Int((maximum(double_freqs) - minimum(double_freqs))/2)
 end
 
 
 function apply_rules(pair_freqs, rules)
-    new_pair_freqs = Dict((k, Int64(0)) for (k, _) in rules)
-    for (pair, ins) in rules
-        new_pair_freqs[string(pair[1], ins)] += pair_freqs[pair]
-        new_pair_freqs[string(ins, pair[2])] += pair_freqs[pair]
+    new_pair_freqs = Dict(k => 0 for k in keys(rules))
+    for (pair, insertion) in rules
+        new_pair_freqs[pair[1]*insertion] += pair_freqs[pair]
+        new_pair_freqs[insertion*pair[2]] += pair_freqs[pair]
     end
     return new_pair_freqs
 end
