@@ -2,6 +2,8 @@ using Test
 using aoc2021
 
 
+include("test_BITS.jl")
+
 include("test_day01.jl")
 include("test_day02.jl")
 include("test_day03.jl")
@@ -17,3 +19,4 @@ include("test_day12.jl")
 include("test_day13.jl")
 include("test_day14.jl")
 include("test_day15.jl")
+include("test_day16.jl")
