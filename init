@@ -43,5 +43,6 @@ EOF
 
 
 day=$(date +%d)
+init_day=${1:-$day}
 
-[[ -e src/day${day}.jl ]] || add_module ${day}
+[[ -e src/day${init_day}.jl ]] || add_module $init_day
